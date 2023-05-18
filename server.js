@@ -9,11 +9,12 @@ const ThemesfolderPath = "./Themes/"
 
 
 //Api calls:
-app.post("/themes", (req, res) => {
-    res.download(ThemesfolderPath + req.body.title, function(err) {
+app.post("/themes/:fileName", (req, res) => {
+
+    res.download(ThemesfolderPath + req.params.fileName, function(err) {
         if(err) {
             console.log(err);
-            res.json([{"result": "theme file does not exist", "filename": req.body.title}]);
+            res.json([{"result": "theme file does not exist", "filename": req.params.fileName}]);
         }
     })
 })
