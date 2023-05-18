@@ -2,11 +2,11 @@
     "themes": [
         {
             "key": "futuristic",
-            "path": "http://api.kamodb.de:5000/themes/futuristic.css"
+            "path": "https://api.kamodb.de:5000/themes/futuristic.css"
         },
         {
             "key": "pragmatic",
-            "path": "http://api.kamodb.de:5000/themes/pragmatic.css"
+            "path": "https://api.kamodb.de:5000/themes/pragmatic.css"
         }
     ]
 }
