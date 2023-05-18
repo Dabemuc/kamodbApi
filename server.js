@@ -9,7 +9,7 @@ const ThemesfolderPath = "./Themes/"
 
 
 //Api calls:
-app.post("/themes/:fileName", (req, res) => {
+app.get("/themes/:fileName", (req, res) => {
 
     res.download(ThemesfolderPath + req.params.fileName, function(err) {
         if(err) {
