@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -6,11 +7,15 @@ const app = express()
 app.use(bodyParser.json());
 
 const ThemesfolderPath = "./Themes/"
+const themes =  require(ThemesfolderPath + "listOfThemes.json")
 
 
 //Api calls:
-app.get("/themes/:fileName", (req, res) => {
+app.get("/themes", (req, res) => {
+    res.json(themes)
+})
 
+app.get("/themes/:fileName", (req, res) => {
     res.download(ThemesfolderPath + req.params.fileName, function(err) {
         if(err) {
             console.log(err);
