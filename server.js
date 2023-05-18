@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 const express = require('express');
+var https = require('https');
+var fs = require('fs');
 const bodyParser = require('body-parser');
 const cors = require('cors')
 
@@ -11,6 +13,14 @@ app.use(cors())
 const ThemesfolderPath = "./Themes/"
 const themes =  require(ThemesfolderPath + "listOfThemes.json")
 
+var options = {
+    key: fs.readFileSync('./ssl/privkey1.pem'),
+    cert: fs.readFileSync('./ssl/cert1.pem'),
+};
+
+var server = https.createServer(options, app).listen(5000, function(){
+    console.log("Express server listening on port " + 5000);
+});
 
 //Api calls:
 app.get("/themes", (req, res) => {
@@ -27,5 +37,5 @@ app.get("/themes/:fileName", (req, res) => {
 })
 
 
-//start listener on port 5000
-app.listen(5000, () => {console.log("Server started on port 5000")})
+// //start listener on port 5000
+// app.listen(5000, () => {console.log("Server started on port 5000")})
