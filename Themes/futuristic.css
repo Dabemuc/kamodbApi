@@ -142,6 +142,7 @@
         background-color: var(--cardHighlighted);
         height: calc(100% - 0.5rem);
         width: calc(100% - 0.5rem);
+        text-decoration: none !important;
     }
 
     .card-content h3 {
